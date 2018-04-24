@@ -3,7 +3,7 @@ var regent = require('regent');
 //modify this data array to play with the various scenarios
 const data = {
   teacher: {
-    MinutesLate: 15,
+    MinutesLate: 16,
     TakesAttendance: true
   },
 
@@ -13,11 +13,11 @@ const data = {
 };
 
 //if a teacher is 15 minutes late I am legally allowed to leave
-const isPast15Minutes = { left: '@teacher.MinutesPast', fn: 'greaterThan', right: 15 };
+const isPast15Minutes = { left: '@teacher.MinutesLate', fn: 'greaterThan', right: 15 };
 const onTime = regent.not(isPast15Minutes);
 
-const lessThan15 = { left: '@teacher.MinutesPast', fn: 'lessThan', right: 15 };
-const moreThan0 = { left: '@teacher.MinutesPast', fn: 'greaterThan', right: 0 };
+const lessThan15 = { left: '@teacher.MinutesLate', fn: 'lessThan', right: 15 };
+const moreThan0 = { left: '@teacher.MinutesLate', fn: 'greaterThan', right: 0 };
 const teacherIsLate = regent.and(lessThan15, moreThan0);
 
 //if a class is cancelled I should have never gotten out of bed 
@@ -36,7 +36,6 @@ const leaveClassDecision = [
   { action: 'Better wait it out...', rule: regent.and(teacherIsLate, isMandatory) },
   { action: 'No, you must stay!', rule: onTime }
 ];
-
 
 //find the first action for this input that matches and print
 const { action } = regent.find(leaveClassDecision, data);
