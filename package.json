@@ -1,0 +1,22 @@
+{
+  "name": "can-i-leave-class",
+  "version": "1.0.0",
+  "description": "using regent prior to presentation prior to presentation with MilwaukeeJS meetup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesMReilly/can-i-leave-class.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamesMReilly/can-i-leave-class/issues"
+  },
+  "homepage": "https://github.com/JamesMReilly/can-i-leave-class#readme",
+  "dependencies": {
+    "regent": "^2.0.2"
+  }
+}
